@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from "react";
@@ -17,6 +16,7 @@ import {
   ChevronDown,
   Calendar
 } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -165,14 +165,14 @@ export default function CalendarPage() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="bg-popover border-white/10 w-[240px]">
-                <DropdownMenuItem className="py-3 cursor-pointer">
-                  Schedule Classroom Session
+                <DropdownMenuItem asChild>
+                  <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Schedule Classroom Session</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="py-3 cursor-pointer">
-                  Virtual Session
+                <DropdownMenuItem asChild>
+                  <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Virtual Session</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="py-3 cursor-pointer">
-                  Self Learning Session
+                <DropdownMenuItem asChild>
+                  <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Self Learning Session</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
