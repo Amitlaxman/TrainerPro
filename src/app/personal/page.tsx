@@ -1,4 +1,3 @@
-
 "use client"
 
 import { 
@@ -20,6 +19,7 @@ import {
   ChevronRight,
   GraduationCap
 } from "lucide-react";
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -244,7 +244,9 @@ export default function PersonalDashboard() {
             <Card className="xl:col-span-2 bg-[#151921] border-none rounded-3xl p-8 space-y-8">
               <div className="flex items-center justify-between">
                 <h3 className="text-xl font-bold">My Schedule</h3>
-                <Button variant="link" className="text-primary text-sm font-bold p-0 h-auto">View Calendar</Button>
+                <Button variant="link" asChild className="text-primary text-sm font-bold p-0 h-auto">
+                  <Link href="/schedule">View Calendar</Link>
+                </Button>
               </div>
               <div className="space-y-6">
                 {schedule.map((item, idx) => (
@@ -262,8 +264,8 @@ export default function PersonalDashboard() {
                         </div>
                       </div>
                     </div>
-                    <Button variant="outline" size="sm" className="bg-[#1C222C] border-none hover:bg-white/5 rounded-xl text-[10px] font-bold h-8">
-                      Manage
+                    <Button asChild variant="outline" size="sm" className="bg-[#1C222C] border-none hover:bg-white/5 rounded-xl text-[10px] font-bold h-8 cursor-pointer">
+                      <Link href="/schedule/details">Manage</Link>
                     </Button>
                   </div>
                 ))}

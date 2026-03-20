@@ -29,6 +29,30 @@
       "description": "Student avatar 2",
       "imageUrl": "https://picsum.photos/seed/student2/100/100",
       "imageHint": "student person"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Session gallery image 1",
+      "imageUrl": "https://picsum.photos/seed/gall1/400/300",
+      "imageHint": "training session"
+    },
+    {
+      "id": "gallery-2",
+      "description": "Session gallery image 2",
+      "imageUrl": "https://picsum.photos/seed/gall2/400/300",
+      "imageHint": "classroom student"
+    },
+    {
+      "id": "gallery-3",
+      "description": "Session gallery image 3",
+      "imageUrl": "https://picsum.photos/seed/gall3/400/300",
+      "imageHint": "learning material"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Session gallery image 4",
+      "imageUrl": "https://picsum.photos/seed/gall4/400/300",
+      "imageHint": "office meeting"
     }
   ]
 }

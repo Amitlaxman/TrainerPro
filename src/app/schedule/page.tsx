@@ -1,4 +1,3 @@
-
 "use client"
 
 import { 
@@ -147,8 +146,10 @@ export default function MySchedule() {
 
                   {/* Actions */}
                   <div className="flex items-center gap-3">
-                    <Button variant="outline" className="border-white/5 bg-transparent hover:bg-white/5 text-primary text-xs font-bold rounded-xl h-10 px-6">
-                      Manage Session
+                    <Button asChild variant="outline" className="border-white/5 bg-transparent hover:bg-white/5 text-primary text-xs font-bold rounded-xl h-10 px-6 cursor-pointer">
+                      <Link href="/schedule/details">
+                        Manage Session
+                      </Link>
                     </Button>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
