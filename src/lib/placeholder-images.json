@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "avatar-trainer",
+      "description": "Professional trainer avatar",
+      "imageUrl": "https://picsum.photos/seed/trainer123/200/200",
+      "imageHint": "professional person"
+    },
+    {
+      "id": "course-security",
+      "description": "Security protocols training",
+      "imageUrl": "https://picsum.photos/seed/security/800/600",
+      "imageHint": "security office"
+    },
+    {
+      "id": "course-emergency",
+      "description": "Emergency response training",
+      "imageUrl": "https://picsum.photos/seed/emergency/800/600",
+      "imageHint": "emergency drill"
+    }
+  ]
 }
