@@ -1,3 +1,4 @@
+
 "use client"
 
 import { 
@@ -9,7 +10,9 @@ import {
   ExternalLink, 
   MessageSquare, 
   MoreVertical,
-  CalendarDays
+  CalendarDays,
+  Calendar,
+  ChevronDown
 } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
@@ -81,9 +84,25 @@ export default function MySchedule() {
           <Button variant="secondary" className="bg-white/5 border-none text-white hover:bg-white/10">
             <Download className="w-4 h-4 mr-2" /> Export
           </Button>
-          <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
-            <Plus className="w-4 h-4 mr-2" /> New Session
-          </Button>
+          
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
+                <Calendar className="w-4 h-4 mr-2" /> Schedule Training <ChevronDown className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-popover border-white/10 w-[240px]">
+              <DropdownMenuItem className="py-3 cursor-pointer">
+                Schedule Classroom Session
+              </DropdownMenuItem>
+              <DropdownMenuItem className="py-3 cursor-pointer">
+                Virtual Session
+              </DropdownMenuItem>
+              <DropdownMenuItem className="py-3 cursor-pointer">
+                Self Learning Session
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+
 "use client"
 
 import { 
@@ -7,7 +8,7 @@ import {
   FileBarChart, 
   Bell, 
   HelpCircle, 
-  Calendar,
+  Calendar as CalendarIcon,
   Users,
   Star,
   Clock,
@@ -17,7 +18,9 @@ import {
   AlertCircle,
   ChevronLeft,
   ChevronRight,
-  GraduationCap
+  GraduationCap,
+  ChevronDown,
+  Calendar
 } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -34,6 +37,12 @@ import {
   ResponsiveContainer,
   Legend
 } from 'recharts';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const performanceData = [
@@ -133,9 +142,29 @@ export default function PersonalDashboard() {
           <div className="space-y-4">
             <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground px-2">Quick Actions</p>
             <div className="space-y-2">
-              <Button className="w-full justify-start gap-3 h-12 bg-primary hover:bg-primary/90 text-white rounded-xl shadow-lg shadow-primary/10">
-                <PlusCircle className="w-5 h-5" /> Create New Session
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="w-full justify-between gap-3 h-12 bg-primary hover:bg-primary/90 text-white rounded-xl shadow-lg shadow-primary/10">
+                    <div className="flex items-center gap-3">
+                      <Calendar className="w-5 h-5" /> 
+                      <span>Schedule Training</span>
+                    </div>
+                    <ChevronDown className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="bg-popover border-white/10 w-[240px]">
+                  <DropdownMenuItem className="py-3 cursor-pointer">
+                    Schedule Classroom Session
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="py-3 cursor-pointer">
+                    Virtual Session
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="py-3 cursor-pointer">
+                    Self Learning Session
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
               <Button variant="ghost" className="w-full justify-start gap-3 h-12 hover:bg-white/5 text-muted-foreground hover:text-white rounded-xl">
                 <Search className="w-5 h-5" /> Browse Question Bank
               </Button>
@@ -187,7 +216,7 @@ export default function PersonalDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             <Card className="bg-[#151921] border-none p-6 rounded-3xl relative overflow-hidden group">
               <div className="absolute top-4 right-4 p-2 bg-primary/10 rounded-xl group-hover:scale-110 transition-transform">
-                <Calendar className="w-5 h-5 text-primary" />
+                <CalendarIcon className="w-5 h-5 text-primary" />
               </div>
               <div className="space-y-4">
                 <p className="text-sm text-muted-foreground font-medium">Active Sessions</p>

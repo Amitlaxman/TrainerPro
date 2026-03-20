@@ -13,7 +13,9 @@ import {
   Rows,
   Calendar as CalendarIcon,
   Search,
-  Check
+  Check,
+  ChevronDown,
+  Calendar
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +28,12 @@ import {
   SelectTrigger, 
   SelectValue 
 } from "@/components/ui/select";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 
 const days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
@@ -143,15 +151,31 @@ export default function CalendarPage() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <Button variant="secondary" className="bg-white/5 border-none h-9 text-xs">
+            <Button variant="secondary" className="bg-white/5 border-none h-9 text-xs text-white">
               <Download className="w-3.5 h-3.5 mr-2" /> Export
             </Button>
-            <Button variant="secondary" className="bg-white/5 border-none h-9 text-xs">
+            <Button variant="secondary" className="bg-white/5 border-none h-9 text-xs text-white">
               <Printer className="w-3.5 h-3.5 mr-2" /> Print
             </Button>
-            <Button className="bg-primary hover:bg-primary/90 h-9 text-xs px-4">
-              <Plus className="w-3.5 h-3.5 mr-2" /> Schedule Session
-            </Button>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="bg-primary hover:bg-primary/90 h-9 text-xs px-4 text-white">
+                  <Calendar className="w-3.5 h-3.5 mr-2" /> Schedule Training <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="bg-popover border-white/10 w-[240px]">
+                <DropdownMenuItem className="py-3 cursor-pointer">
+                  Schedule Classroom Session
+                </DropdownMenuItem>
+                <DropdownMenuItem className="py-3 cursor-pointer">
+                  Virtual Session
+                </DropdownMenuItem>
+                <DropdownMenuItem className="py-3 cursor-pointer">
+                  Self Learning Session
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </header>
 
