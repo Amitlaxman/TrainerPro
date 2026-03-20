@@ -1,3 +1,4 @@
+
 "use client"
 
 import { 
@@ -11,6 +12,7 @@ import {
   MoreVertical,
   CalendarDays
 } from "lucide-react";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -72,6 +74,11 @@ export default function MySchedule() {
           <p className="text-muted-foreground mt-1">Monday, Oct 24th — 8 Sessions Total</p>
         </div>
         <div className="flex items-center gap-3">
+          <Button variant="secondary" asChild className="bg-white/5 border-none text-white hover:bg-white/10">
+            <Link href="/calendar">
+              <CalendarDays className="w-4 h-4 mr-2" /> Calendar View
+            </Link>
+          </Button>
           <Button variant="secondary" className="bg-white/5 border-none text-white hover:bg-white/10">
             <Download className="w-4 h-4 mr-2" /> Export
           </Button>

@@ -1,3 +1,4 @@
+
 "use client"
 
 import {
@@ -12,7 +13,8 @@ import {
   LogOut,
   User,
   Calendar,
-  ChevronRight
+  ChevronRight,
+  CalendarDays
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,6 +37,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "My Schedule", href: "/schedule", icon: Calendar },
+  { name: "Calendar", href: "/calendar", icon: CalendarDays },
   { name: "Personal", href: "/personal", icon: User },
   { name: "Employees", href: "/employees", icon: Users },
   { name: "Courses", href: "/courses", icon: BookOpen },
