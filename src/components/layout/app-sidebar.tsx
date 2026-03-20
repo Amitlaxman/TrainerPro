@@ -1,4 +1,3 @@
-
 "use client"
 
 import {
@@ -12,6 +11,7 @@ import {
   Bell,
   LogOut,
   User,
+  Calendar,
   ChevronRight
 } from "lucide-react";
 import Link from "next/link";
@@ -33,7 +33,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const navigation = [
-  { name: "Overview", href: "/", icon: LayoutDashboard },
+  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "My Schedule", href: "/schedule", icon: Calendar },
   { name: "Personal", href: "/personal", icon: User },
   { name: "Employees", href: "/employees", icon: Users },
   { name: "Courses", href: "/courses", icon: BookOpen },
@@ -112,6 +113,18 @@ export function AppSidebar() {
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* Quick Filters - Desktop only mock from image */}
+        <SidebarGroup className="mt-auto pb-4 px-4 hidden md:block">
+          <div className="p-4 rounded-xl bg-white/5 space-y-3">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-primary/70">Quick Filters</p>
+            <div className="space-y-2 text-xs text-muted-foreground">
+              <p className="hover:text-white cursor-pointer transition-colors">Classroom</p>
+              <p className="hover:text-white cursor-pointer transition-colors">Virtual Sessions</p>
+              <p className="hover:text-white cursor-pointer transition-colors">Self-Paced Checkins</p>
+            </div>
+          </div>
         </SidebarGroup>
       </SidebarContent>
 
