@@ -1,3 +1,4 @@
+
 "use client"
 
 import { 
@@ -92,13 +93,13 @@ export default function MySchedule() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-popover border-white/10 w-[240px]">
               <DropdownMenuItem asChild>
-                <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Schedule Classroom Session</Link>
+                <Link href="/schedule/create" className="py-3 cursor-pointer w-full text-white">Schedule Classroom Session</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Virtual Session</Link>
+                <Link href="/schedule/virtual" className="py-3 cursor-pointer w-full text-white">Virtual Session</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Self Learning Session</Link>
+                <Link href="/schedule/self-learning" className="py-3 cursor-pointer w-full text-white">Self Learning Session</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

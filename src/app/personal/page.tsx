@@ -1,7 +1,7 @@
+
 "use client"
 
 import { 
-  PlusCircle, 
   Search, 
   Upload, 
   FileBarChart, 
@@ -22,7 +22,7 @@ import {
   Calendar
 } from "lucide-react";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -33,8 +33,7 @@ import {
   YAxis, 
   CartesianGrid, 
   Tooltip, 
-  ResponsiveContainer,
-  Legend
+  ResponsiveContainer
 } from 'recharts';
 import {
   DropdownMenu,
@@ -153,13 +152,13 @@ export default function PersonalDashboard() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="bg-popover border-white/10 w-[240px]">
                   <DropdownMenuItem asChild>
-                    <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Schedule Classroom Session</Link>
+                    <Link href="/schedule/create" className="py-3 cursor-pointer w-full text-white">Schedule Classroom Session</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Virtual Session</Link>
+                    <Link href="/schedule/virtual" className="py-3 cursor-pointer w-full text-white">Virtual Session</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Self Learning Session</Link>
+                    <Link href="/schedule/self-learning" className="py-3 cursor-pointer w-full text-white">Self Learning Session</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -292,7 +291,7 @@ export default function PersonalDashboard() {
                         </div>
                       </div>
                     </div>
-                    <Button asChild variant="outline" size="sm" className="bg-[#1C222C] border-none hover:bg-white/5 rounded-xl text-[10px] font-bold h-8 cursor-pointer">
+                    <Button asChild variant="outline" size="sm" className="bg-[#1C222C] border-none hover:bg-white/5 rounded-xl text-[10px] font-bold h-8 cursor-pointer text-white">
                       <Link href="/schedule/details">Manage</Link>
                     </Button>
                   </div>

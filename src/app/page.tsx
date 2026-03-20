@@ -1,3 +1,4 @@
+
 "use client"
 
 import { 
@@ -95,10 +96,10 @@ export default function Dashboard() {
                 <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Schedule Classroom Session</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Virtual Session</Link>
+                <Link href="/schedule/virtual" className="py-3 cursor-pointer w-full">Virtual Session</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/schedule/create" className="py-3 cursor-pointer w-full">Self Learning Session</Link>
+                <Link href="/schedule/self-learning" className="py-3 cursor-pointer w-full">Self Learning Session</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
