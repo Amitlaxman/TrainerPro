@@ -17,6 +17,18 @@
       "description": "Emergency response training",
       "imageUrl": "https://picsum.photos/seed/emergency/800/600",
       "imageHint": "emergency drill"
+    },
+    {
+      "id": "avatar-student-1",
+      "description": "Student avatar 1",
+      "imageUrl": "https://picsum.photos/seed/student1/100/100",
+      "imageHint": "student person"
+    },
+    {
+      "id": "avatar-student-2",
+      "description": "Student avatar 2",
+      "imageUrl": "https://picsum.photos/seed/student2/100/100",
+      "imageHint": "student person"
     }
   ]
 }

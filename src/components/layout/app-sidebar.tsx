@@ -1,3 +1,4 @@
+
 "use client"
 
 import {
@@ -10,6 +11,7 @@ import {
   Settings,
   Bell,
   LogOut,
+  User,
   ChevronRight
 } from "lucide-react";
 import Link from "next/link";
@@ -31,7 +33,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Overview", href: "/", icon: LayoutDashboard },
+  { name: "Personal", href: "/personal", icon: User },
   { name: "Employees", href: "/employees", icon: Users },
   { name: "Courses", href: "/courses", icon: BookOpen },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
