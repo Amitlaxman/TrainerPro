@@ -10,7 +10,8 @@ import {
   CheckCircle2,
   Calendar,
   MoreVertical,
-  Search
+  Search,
+  ChevronDown
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -29,6 +30,12 @@ import {
 } from 'recharts';
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const stats = [
   { label: "Total Trained", value: "1,284", change: "+12%", icon: Users, color: "text-blue-500", bg: "bg-blue-500/10" },
@@ -75,9 +82,25 @@ export default function Dashboard() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input placeholder="Search records..." className="pl-9 w-[240px] bg-secondary border-none" />
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
-            <Calendar className="w-4 h-4 mr-2" /> Schedule Training
-          </Button>
+          
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button className="bg-primary hover:bg-primary/90">
+                <Calendar className="w-4 h-4 mr-2" /> Schedule Training <ChevronDown className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-popover border-white/10 w-[240px]">
+              <DropdownMenuItem className="py-3 cursor-pointer">
+                Schedule Classroom Session
+              </DropdownMenuItem>
+              <DropdownMenuItem className="py-3 cursor-pointer">
+                Virtual Session
+              </DropdownMenuItem>
+              <DropdownMenuItem className="py-3 cursor-pointer">
+                Self Learning Session
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
 
