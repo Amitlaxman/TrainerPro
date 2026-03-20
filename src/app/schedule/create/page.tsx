@@ -235,10 +235,10 @@ export default function CreateSession() {
                 </TableBody>
               </Table>
               <div className="p-4 bg-white/5 border-t border-white/5">
-                <p className="text-[10px] text-muted-foreground flex items-center gap-2">
+                <div className="text-[10px] text-muted-foreground flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground/30" />
                   Trainees will automatically receive the meeting invite after scheduling.
-                </p>
+                </div>
               </div>
             </Card>
           </section>
