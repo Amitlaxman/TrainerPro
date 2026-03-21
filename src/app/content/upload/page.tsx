@@ -14,7 +14,8 @@ import {
   Settings,
   Shield,
   FileBadge,
-  Clock
+  Clock,
+  MoreVertical
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
