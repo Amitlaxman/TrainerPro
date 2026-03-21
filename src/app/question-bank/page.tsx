@@ -13,7 +13,12 @@ import {
   ChevronDown,
   BarChart3,
   Database,
-  ShieldCheck
+  ShieldCheck,
+  FileSpreadsheet,
+  UploadCloud,
+  X,
+  CheckCircle2,
+  AlertCircle
 } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
@@ -36,6 +41,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 
 const questions = [
@@ -86,6 +98,8 @@ const questions = [
 ];
 
 export default function QuestionBank() {
+  const [importOpen, setImportOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#0A0C10] p-10 space-y-10">
       {/* Top Search & Action Bar */}
@@ -97,11 +111,106 @@ export default function QuestionBank() {
             className="bg-[#151921] border-none h-12 pl-12 text-sm focus-visible:ring-1 focus-visible:ring-primary/40"
           />
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" className="h-10 w-10 relative">
             <Bell className="w-5 h-5 text-muted-foreground" />
             <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border border-[#0A0C10]" />
           </Button>
+
+          {/* Bulk Import Trigger */}
+          <Dialog open={importOpen} onOpenChange={setImportOpen}>
+            <DialogTrigger asChild>
+              <Button variant="ghost" className="h-11 px-4 font-bold text-xs uppercase tracking-widest text-white/70 hover:text-white hover:bg-white/5">
+                <FileSpreadsheet className="w-4 h-4 mr-2" /> Bulk Import
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl bg-[#11141D] border-white/5 p-0 overflow-hidden text-white">
+              <div className="p-8 space-y-8">
+                <div className="flex items-start justify-between">
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <FileSpreadsheet className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <DialogTitle className="text-xl font-bold tracking-tight text-white">Bulk Import Questions</DialogTitle>
+                      <p className="text-sm text-muted-foreground mt-1">Import multiple assessment items via spreadsheet</p>
+                    </div>
+                  </div>
+                  <button onClick={() => setImportOpen(false)} className="text-muted-foreground hover:text-white transition-colors">
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Section 1: Upload */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">1. Upload Spreadsheet</h3>
+                    <Button variant="link" className="text-primary text-[10px] font-bold uppercase tracking-widest h-auto p-0 hover:no-underline">
+                      <Download className="w-3.5 h-3.5 mr-1.5" /> Download Sample Template
+                    </Button>
+                  </div>
+                  <div className="border-2 border-dashed border-white/10 rounded-2xl p-12 flex flex-col items-center justify-center text-center space-y-4 hover:border-primary/40 transition-colors cursor-pointer group">
+                    <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                      <UploadCloud className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-sm font-medium">Drag & drop your file here or <span className="text-primary hover:underline">browse</span></p>
+                      <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Supports .xlsx, .xls, and .csv formats (Max 5MB)</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Section 2: Preview */}
+                <div className="space-y-4">
+                  <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">2. Validate Data Preview</h3>
+                  <div className="rounded-xl border border-white/5 overflow-hidden">
+                    <Table>
+                      <TableHeader>
+                        <TableRow className="border-white/5 bg-white/5 hover:bg-transparent">
+                          <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Stem</TableHead>
+                          <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Type</TableHead>
+                          <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Subject</TableHead>
+                          <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Difficulty</TableHead>
+                          <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground text-center">Status</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow className="border-white/5 hover:bg-white/5">
+                          <TableCell className="text-xs font-medium py-4 text-white/80">What is the capital of...</TableCell>
+                          <TableCell className="text-xs text-muted-foreground">Single Choice</TableCell>
+                          <TableCell className="text-xs text-muted-foreground">Geography</TableCell>
+                          <TableCell className="text-xs text-muted-foreground">Low</TableCell>
+                          <TableCell className="text-center">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-500 mx-auto" />
+                          </TableCell>
+                        </TableRow>
+                        <TableRow className="border-white/5 hover:bg-white/5">
+                          <TableCell className="text-xs font-medium py-4 text-destructive">[Missing Stem Text]</TableCell>
+                          <TableCell className="text-xs text-muted-foreground">Multiple Correct</TableCell>
+                          <TableCell className="text-xs text-muted-foreground">Physics</TableCell>
+                          <TableCell className="text-xs text-muted-foreground">High</TableCell>
+                          <TableCell className="text-center">
+                            <AlertCircle className="w-4 h-4 text-destructive mx-auto" />
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="p-6 border-t border-white/5 bg-white/2 flex items-center justify-end gap-4">
+                <Button variant="ghost" onClick={() => setImportOpen(false)} className="text-muted-foreground hover:text-white font-bold text-xs uppercase tracking-widest">
+                  Cancel
+                </Button>
+                <Button className="bg-primary hover:bg-primary/90 text-white font-black text-xs uppercase tracking-[0.2em] px-8 rounded-xl h-12 shadow-xl shadow-primary/20">
+                  Confirm Import
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
+
           <Button asChild className="bg-primary hover:bg-primary/90 h-11 px-6 rounded-xl font-bold text-xs uppercase tracking-widest text-white shadow-xl shadow-primary/20">
             <Link href="/question-bank/create">
               <Plus className="w-4 h-4 mr-2" /> Create New Question
@@ -218,7 +327,7 @@ export default function QuestionBank() {
               <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Difficulty</TableHead>
               <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Type</TableHead>
               <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">PTS</TableHead>
-              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Updated</TableHead>
+              <TableHead className="text-[10px) font-bold uppercase tracking-widest text-muted-foreground">Updated</TableHead>
               <TableHead className="w-16 pr-8"></TableHead>
             </TableRow>
           </TableHeader>
