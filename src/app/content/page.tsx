@@ -40,6 +40,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const repositoryData = [
   {
@@ -107,8 +108,10 @@ export default function ContentRepository() {
           <h1 className="text-3xl font-bold text-white tracking-tight">Digital Content Repository</h1>
           <p className="text-muted-foreground font-medium">Centralized management for all your educational assets and learning materials.</p>
         </div>
-        <Button className="bg-primary hover:bg-primary/90 text-white h-11 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
-          <Plus className="w-4 h-4 mr-2" /> Upload New Content
+        <Button asChild className="bg-primary hover:bg-primary/90 text-white h-11 px-6 rounded-xl font-bold uppercase tracking-widest text-[10px]">
+          <Link href="/content/upload">
+            <Plus className="w-4 h-4 mr-2" /> Upload New Content
+          </Link>
         </Button>
       </div>
 
