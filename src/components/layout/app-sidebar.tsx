@@ -14,7 +14,9 @@ import {
   Calendar,
   ChevronRight,
   CalendarDays,
-  Database
+  Database,
+  Search,
+  LayoutGrid
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -42,6 +44,7 @@ const navigation = [
   { name: "Employees", href: "/employees", icon: Users },
   { name: "Courses", href: "/courses", icon: BookOpen },
   { name: "Content", href: "/content", icon: Database },
+  { name: "Question Bank", href: "/question-bank", icon: Search },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
   { name: "AI Tools", href: "/ai-tools", icon: Sparkles },
 ];
@@ -119,7 +122,6 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Quick Filters - Desktop only mock from image */}
         <SidebarGroup className="mt-auto pb-4 px-4 hidden md:block">
           <div className="p-4 rounded-xl bg-white/5 space-y-3">
             <p className="text-[10px] font-bold uppercase tracking-widest text-primary/70">Quick Filters</p>
