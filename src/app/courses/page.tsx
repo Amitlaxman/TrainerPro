@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import Link from "next/link";
 
 const courses = [
   {
@@ -62,8 +62,10 @@ export default function Courses() {
           <Button variant="secondary" className="bg-white/5 border-none">
             <Settings2 className="w-4 h-4 mr-2" /> Organization
           </Button>
-          <Button className="bg-primary hover:bg-primary/90">
-            <Plus className="w-4 h-4 mr-2" /> Create New Course
+          <Button asChild className="bg-primary hover:bg-primary/90">
+            <Link href="/courses/create">
+              <Plus className="w-4 h-4 mr-2" /> Create New Course
+            </Link>
           </Button>
         </div>
       </div>
