@@ -49,35 +49,6 @@ export default function CourseBuilder() {
 
   return (
     <div className="min-h-screen bg-[#0F1218] flex flex-col text-white">
-      {/* Top Navbar */}
-      <header className="px-8 py-4 border-b border-white/5 flex items-center justify-between bg-[#151921]/50 backdrop-blur-md">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <ShieldCheck className="w-5 h-5 text-white" />
-          </div>
-          <span className="font-bold text-sm tracking-tight text-white uppercase">LMS Admin</span>
-          <nav className="ml-10 flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
-            <Link href="/" className="hover:text-primary transition-colors">Dashboard</Link>
-            <Link href="/courses" className="text-primary">Course Builder</Link>
-            <Link href="/employees" className="hover:text-primary transition-colors">User Registry</Link>
-            <Link href="/analytics" className="hover:text-primary transition-colors">Analytics</Link>
-          </nav>
-        </div>
-        <div className="flex items-center gap-6">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input 
-              placeholder="Quick search courses..." 
-              className="bg-[#1C222C] border-none h-9 w-64 text-xs pl-10"
-            />
-          </div>
-          <Bell className="w-5 h-5 text-muted-foreground cursor-pointer hover:text-white" />
-          <div className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/20 flex items-center justify-center">
-            <User className="w-4 h-4 text-emerald-500" />
-          </div>
-        </div>
-      </header>
-
       <div className="flex-1 flex overflow-hidden">
         {/* Left Sidebar */}
         <aside className="w-72 border-r border-white/5 p-8 flex flex-col gap-10 overflow-y-auto">
