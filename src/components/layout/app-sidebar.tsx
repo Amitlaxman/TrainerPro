@@ -1,4 +1,3 @@
-
 "use client"
 
 import {
@@ -14,7 +13,8 @@ import {
   User,
   Calendar,
   ChevronRight,
-  CalendarDays
+  CalendarDays,
+  Database
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,6 +41,7 @@ const navigation = [
   { name: "Personal", href: "/personal", icon: User },
   { name: "Employees", href: "/employees", icon: Users },
   { name: "Courses", href: "/courses", icon: BookOpen },
+  { name: "Content", href: "/content", icon: Database },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
   { name: "AI Tools", href: "/ai-tools", icon: Sparkles },
 ];
