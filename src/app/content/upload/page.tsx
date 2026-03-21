@@ -13,7 +13,8 @@ import {
   Trash2,
   Settings,
   Shield,
-  FileBadge
+  FileBadge,
+  Clock
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -50,7 +51,7 @@ export default function UploadContent() {
 
   return (
     <div className="min-h-screen bg-[#0A0C10] text-foreground p-8 flex flex-col">
-      <div className="max-w-[1400px] mx-auto w-full space-y-10 flex-1">
+      <div className="max-w-[1440px] mx-auto w-full space-y-10 flex-1">
         {/* Header */}
         <div className="space-y-1">
           <h1 className="text-3xl font-bold text-white tracking-tight">Upload Content</h1>
@@ -328,7 +329,7 @@ export default function UploadContent() {
       </div>
 
       {/* Footer Actions */}
-      <footer className="mt-12 pt-8 border-t border-white/5 flex items-center justify-end gap-6 max-w-[1400px] mx-auto w-full pb-8">
+      <footer className="mt-12 pt-8 border-t border-white/5 flex items-center justify-end gap-6 max-w-[1440px] mx-auto w-full pb-8">
         <Button variant="ghost" asChild className="text-muted-foreground hover:text-white font-bold text-xs uppercase tracking-widest">
           <Link href="/content">Cancel</Link>
         </Button>
