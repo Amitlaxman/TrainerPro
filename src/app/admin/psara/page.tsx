@@ -43,6 +43,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const stats = [
   { label: "Overall Compliance %", value: "94.2%", change: "+2.1% from last month", icon: ShieldCheck, color: "text-blue-500", bg: "bg-blue-500/10", trend: "up" },
@@ -269,7 +270,9 @@ export default function PSARACompliance() {
               <Card className="bg-[#151921] border-none rounded-2xl shadow-2xl overflow-hidden">
                 <CardHeader className="p-8 border-b border-white/5 flex flex-row items-center justify-between">
                   <CardTitle className="text-lg font-bold text-white tracking-tight">Site Compliance Status</CardTitle>
-                  <Button variant="link" className="text-blue-400 text-xs font-bold uppercase tracking-widest p-0">Export Report</Button>
+                  <Button asChild variant="link" className="text-blue-400 text-xs font-bold uppercase tracking-widest p-0">
+                    <Link href="/admin/safety-report">Export Report</Link>
+                  </Button>
                 </CardHeader>
                 <Table>
                   <TableHeader>
