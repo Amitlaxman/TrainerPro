@@ -1,4 +1,3 @@
-
 "use client"
 
 import { 
@@ -19,7 +18,8 @@ import {
   Trash2, 
   ChevronRight,
   MoreVertical,
-  Monitor
+  Monitor,
+  FileUp
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -35,6 +35,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const systemUsers = [
   { name: "Robert Chambers", email: "r.chambers@corp.net", id: "#EMP-2091", roles: ["Super Admin", "Trainer"], status: "ACTIVE", statusColor: "text-emerald-500 bg-emerald-500/10" },
@@ -90,9 +91,16 @@ export default function AdminUserManagement() {
               <h2 className="text-2xl font-bold text-white tracking-tight">System Users</h2>
               <p className="text-sm text-muted-foreground font-medium">Manage directory users and assigned access tiers.</p>
             </div>
-            <Button variant="secondary" className="bg-[#151921] border-white/5 h-11 px-6 text-xs font-bold uppercase tracking-widest text-white shadow-xl hover:bg-white/5">
-              <FileDown className="w-4 h-4 mr-2" /> Export CSV
-            </Button>
+            <div className="flex gap-3">
+              <Button asChild variant="secondary" className="bg-[#151921] border-white/5 h-11 px-6 text-xs font-bold uppercase tracking-widest text-white shadow-xl hover:bg-white/5">
+                <Link href="/admin/users/bulk-upload">
+                  <FileUp className="w-4 h-4 mr-2" /> Bulk Upload
+                </Link>
+              </Button>
+              <Button variant="secondary" className="bg-[#151921] border-white/5 h-11 px-6 text-xs font-bold uppercase tracking-widest text-white shadow-xl hover:bg-white/5">
+                <FileDown className="w-4 h-4 mr-2" /> Export CSV
+              </Button>
+            </div>
           </div>
 
           <Card className="bg-[#151921]/40 border-none rounded-2xl overflow-hidden shadow-2xl">
