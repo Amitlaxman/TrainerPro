@@ -374,9 +374,9 @@ export default function QuestionBank() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <FileUp className="w-6 h-6 text-primary" />
                 </div>
-                <div>
-                  <h2 className="text-xl font-bold tracking-tight">Bulk Import Questions</h2>
-                  <p className="text-xs text-muted-foreground font-medium">Import multiple assessment items via spreadsheet</p>
+                <div className="space-y-1">
+                  <DialogTitle className="text-xl font-bold tracking-tight text-white">Bulk Import Questions</DialogTitle>
+                  <DialogDescription className="text-xs text-muted-foreground font-medium">Import multiple assessment items via spreadsheet</DialogDescription>
                 </div>
               </div>
               <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-white" onClick={() => setIsImportModalOpen(false)}>
