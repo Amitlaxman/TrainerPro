@@ -83,6 +83,13 @@ export default function RegisterPage() {
               Verify Identity <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
 
+            {/* Login Link */}
+            <div className="text-center">
+              <p className="text-sm font-medium text-muted-foreground">
+                Already a user? <Link href="/login" className="text-blue-500 hover:underline ml-1">Log in here</Link>
+              </p>
+            </div>
+
             {/* Legal Links */}
             <p className="text-[10px] text-center text-muted-foreground font-medium">
               By registering, you agree to our{" "}
