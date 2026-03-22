@@ -2,15 +2,15 @@
 "use client"
 
 import {
-  BarChart3,
-  BookOpen,
   LayoutDashboard,
-  ShieldAlert,
-  Sparkles,
+  ClipboardList,
+  BookOpen,
+  Tags,
   Users,
   Settings,
   Bell,
   LogOut,
+<<<<<<< HEAD
   User,
   Calendar,
   ChevronRight,
@@ -25,6 +25,10 @@ import {
   History,
   Lock,
   FileText
+=======
+  Layers,
+  LayoutGrid
+>>>>>>> fb614b9cd7337b63474005dbd2bef1241ec140a5
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -46,6 +50,7 @@ import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
+<<<<<<< HEAD
 const trainerNavigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "My Schedule", href: "/schedule", icon: Calendar },
@@ -57,6 +62,14 @@ const trainerNavigation = [
   { name: "Question Bank", href: "/question-bank", icon: Search },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
   { name: "AI Tools", href: "/ai-tools", icon: Sparkles },
+=======
+const navigation = [
+  { name: "Overview", href: "/", icon: LayoutGrid },
+  { name: "Question Bank", href: "/question-bank", icon: ClipboardList },
+  { name: "Assessments", href: "/courses", icon: BookOpen },
+  { name: "Categories", href: "/content", icon: Tags },
+  { name: "Students", href: "/employees", icon: Users },
+>>>>>>> fb614b9cd7337b63474005dbd2bef1241ec140a5
 ];
 
 const adminNavigation = [
@@ -74,8 +87,7 @@ const adminSecondaryNav = [
 ];
 
 const secondaryNavigation = [
-  { name: "Notifications", href: "/notifications", icon: Bell },
-  { name: "Settings", href: "/settings", icon: Settings },
+  { name: "General Config", href: "/settings", icon: Settings },
 ];
 
 export function AppSidebar() {
@@ -92,6 +104,7 @@ export function AppSidebar() {
   const secondaryNav = isAdmin ? adminSecondaryNav : secondaryNavigation;
 
   return (
+<<<<<<< HEAD
     <Sidebar className={cn("border-r border-sidebar-border", isAdmin && "bg-[#0F1218]")}>
       <SidebarHeader className="p-6">
         <div className="flex items-center gap-3">
@@ -107,26 +120,42 @@ export function AppSidebar() {
             </span>
             {!isAdmin && <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mt-1">Trainer Portal</span>}
           </div>
+=======
+    <Sidebar className="border-r border-sidebar-border bg-[#0A0C10]">
+      <SidebarHeader className="p-6">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+            <Layers className="text-white w-5 h-5" />
+          </div>
+          <span className="font-headline text-xl tracking-tight text-white">LMS Admin</span>
+>>>>>>> fb614b9cd7337b63474005dbd2bef1241ec140a5
         </div>
       </SidebarHeader>
 
       <SidebarContent>
         <SidebarGroup>
+<<<<<<< HEAD
           <SidebarGroupLabel className="px-4 text-[10px] font-bold uppercase tracking-widest opacity-50">
             Main Menu
           </SidebarGroupLabel>
+=======
+>>>>>>> fb614b9cd7337b63474005dbd2bef1241ec140a5
           <SidebarGroupContent>
             <SidebarMenu>
               {nav.map((item) => (
                 <SidebarMenuItem key={item.name}>
                   <SidebarMenuButton
                     asChild
-                    isActive={pathname === item.href}
+                    isActive={pathname === item.href || pathname.startsWith(item.href + '/')}
                     tooltip={item.name}
+<<<<<<< HEAD
                     className={cn(
                       "h-11 transition-all",
                       pathname === item.href && isAdmin ? "bg-blue-600/10 text-blue-400 font-bold" : ""
                     )}
+=======
+                    className="h-11 px-4 hover:bg-white/5 data-[active=true]:bg-primary/10 data-[active=true]:text-primary"
+>>>>>>> fb614b9cd7337b63474005dbd2bef1241ec140a5
                   >
                     <Link href={item.href} className="flex items-center gap-3">
                       <item.icon className={cn("w-5 h-5", pathname === item.href && isAdmin ? "text-blue-400" : "")} />
@@ -139,11 +168,17 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
+<<<<<<< HEAD
         <SidebarSeparator className="mx-4 my-2 opacity-50" />
 
         <SidebarGroup>
           <SidebarGroupLabel className="px-4 text-[10px] font-bold uppercase tracking-widest opacity-50">
             System
+=======
+        <SidebarGroup className="mt-4">
+          <SidebarGroupLabel className="px-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground opacity-50">
+            Settings
+>>>>>>> fb614b9cd7337b63474005dbd2bef1241ec140a5
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -153,7 +188,7 @@ export function AppSidebar() {
                     asChild
                     isActive={pathname === item.href}
                     tooltip={item.name}
-                    className="h-11"
+                    className="h-11 px-4 hover:bg-white/5"
                   >
                     <Link href={item.href} className="flex items-center gap-3">
                       <item.icon className="w-5 h-5" />
@@ -165,6 +200,7 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+<<<<<<< HEAD
 
         {isAdmin && (
           <div className="mt-auto p-4 space-y-4">
@@ -216,6 +252,20 @@ export function AppSidebar() {
           >
             <LogOut className="w-4 h-4 opacity-70" />
           </button>
+=======
+      </SidebarContent>
+
+      <SidebarFooter className="p-6">
+        <div className="flex items-center gap-3">
+          <Avatar className="w-10 h-10 border border-white/10">
+            <AvatarImage src={trainerImage} />
+            <AvatarFallback>AR</AvatarFallback>
+          </Avatar>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-bold truncate text-white">Alex Rivera</p>
+            <p className="text-[10px] text-muted-foreground font-medium truncate">System Administrator</p>
+          </div>
+>>>>>>> fb614b9cd7337b63474005dbd2bef1241ec140a5
         </div>
       </SidebarFooter>
     </Sidebar>
