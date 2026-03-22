@@ -1,9 +1,9 @@
-
 "use client"
 
 import { useState } from "react";
 import { GraduationCap, HelpCircle, Eye, EyeOff, LogIn, Lock, User, Check } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -138,7 +138,7 @@ export default function LoginPage() {
             {/* Signup Link */}
             <div className="pt-4 text-center">
               <p className="text-sm font-medium text-muted-foreground">
-                First-time user? <button className="text-primary hover:underline ml-1">Sign up here</button>
+                First-time user? <Link href="/register" className="text-primary hover:underline ml-1">Sign up here</Link>
               </p>
             </div>
           </CardContent>

@@ -6,9 +6,9 @@ import { AppSidebar } from "@/components/layout/app-sidebar";
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isLoginPage = pathname === "/login";
+  const isPublicPage = pathname === "/login" || pathname === "/register";
 
-  if (isLoginPage) {
+  if (isPublicPage) {
     return <div className="min-h-screen w-full">{children}</div>;
   }
 
