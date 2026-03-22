@@ -1,8 +1,9 @@
+
 "use client"
 
 import { useState } from "react";
 import { GraduationCap, HelpCircle, Eye, EyeOff, LogIn, Lock, User, Check } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,8 +11,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState<"trainer" | "admin">("trainer");
+
+  const handleSignIn = () => {
+    if (role === "admin") {
+      router.push("/admin");
+    } else {
+      router.push("/");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#0A0C10] flex flex-col items-center relative overflow-hidden">
@@ -25,7 +35,7 @@ export default function LoginPage() {
           <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
             <GraduationCap className="text-white w-6 h-6" />
           </div>
-          <span className="font-headline text-2xl tracking-tight text-white">LMSPortal</span>
+          <span className="font-headline text-2xl tracking-tight text-white">TrainerPro</span>
         </div>
         <div className="flex items-center gap-6">
           <button className="text-xs font-bold text-muted-foreground hover:text-white transition-colors flex items-center gap-2 uppercase tracking-widest">
@@ -79,7 +89,7 @@ export default function LoginPage() {
                 </label>
                 <Input 
                   placeholder="e.g. EMP-12345" 
-                  className="bg-[#0A0C10] border-none h-14 text-sm font-medium focus-visible:ring-1 focus-visible:ring-primary/40 px-6 rounded-2xl" 
+                  className="bg-[#0A0C10] border-none h-14 text-sm font-medium focus-visible:ring-1 focus-visible:ring-primary/40 px-6 rounded-2xl text-white" 
                 />
               </div>
 
@@ -97,7 +107,7 @@ export default function LoginPage() {
                   <Input 
                     type={showPassword ? "text" : "password"}
                     placeholder="••••••••" 
-                    className="bg-[#0A0C10] border-none h-14 text-sm font-medium focus-visible:ring-1 focus-visible:ring-primary/40 px-6 pr-12 rounded-2xl" 
+                    className="bg-[#0A0C10] border-none h-14 text-sm font-medium focus-visible:ring-1 focus-visible:ring-primary/40 px-6 pr-12 rounded-2xl text-white" 
                   />
                   <button 
                     onClick={() => setShowPassword(!showPassword)}
@@ -118,10 +128,11 @@ export default function LoginPage() {
             </div>
 
             {/* Sign In Button */}
-            <Button asChild className="w-full bg-primary hover:bg-primary/90 h-14 rounded-2xl text-sm font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 group">
-              <Link href="/">
-                <LogIn className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" /> Sign In
-              </Link>
+            <Button 
+              onClick={handleSignIn}
+              className="w-full bg-primary hover:bg-primary/90 h-14 rounded-2xl text-sm font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 group"
+            >
+              <LogIn className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" /> Sign In
             </Button>
 
             {/* Signup Link */}
