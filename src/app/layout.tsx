@@ -3,6 +3,7 @@ import './globals.css';
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { Toaster } from "@/components/ui/toaster";
+import { LayoutWrapper } from "@/components/layout/layout-wrapper";
 
 export const metadata: Metadata = {
   title: 'TrainerPro | Professional Training Portal',
@@ -22,15 +23,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
-        <SidebarProvider>
-          <div className="flex min-h-screen w-full">
-            <AppSidebar />
-            <main className="flex-1 overflow-y-auto">
-              {children}
-            </main>
-          </div>
-          <Toaster />
-        </SidebarProvider>
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
+        <Toaster />
       </body>
     </html>
   );

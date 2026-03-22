@@ -16,7 +16,8 @@ import {
   CalendarDays,
   Database,
   Search,
-  LayoutGrid
+  LayoutGrid,
+  GraduationCap
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -62,10 +63,13 @@ export function AppSidebar() {
     <Sidebar className="border-r border-sidebar-border">
       <SidebarHeader className="p-6">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <ShieldAlert className="text-white w-5 h-5" />
+          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
+            <GraduationCap className="text-white w-6 h-6" />
           </div>
-          <span className="font-headline text-xl tracking-tight text-white">TrainerPro</span>
+          <div className="flex flex-col">
+            <span className="font-headline text-xl leading-none tracking-tight text-white">TrainerPro</span>
+            <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mt-1">Trainer Portal</span>
+          </div>
         </div>
       </SidebarHeader>
 
