@@ -1,4 +1,3 @@
-
 "use client"
 
 import { 
@@ -38,6 +37,7 @@ import {
   ResponsiveContainer,
   Cell
 } from 'recharts';
+import { cn } from "@/lib/utils";
 
 const stats = [
   { label: "Total Courses", value: "128", change: "+5.2%", icon: BookOpen, color: "text-blue-500", bg: "bg-blue-500/10", trend: "up" },
