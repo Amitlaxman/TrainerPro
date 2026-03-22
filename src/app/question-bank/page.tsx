@@ -15,6 +15,7 @@ import {
   Database,
   ShieldCheck
 } from "lucide-react";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -101,8 +102,10 @@ export default function QuestionBank() {
             <Bell className="w-5 h-5 text-muted-foreground" />
             <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border border-[#0A0C10]" />
           </Button>
-          <Button className="bg-primary hover:bg-primary/90 h-11 px-6 rounded-xl font-bold text-xs uppercase tracking-widest text-white shadow-xl shadow-primary/20">
-            <Plus className="w-4 h-4 mr-2" /> Create New Question
+          <Button asChild className="bg-primary hover:bg-primary/90 h-11 px-6 rounded-xl font-bold text-xs uppercase tracking-widest text-white shadow-xl shadow-primary/20">
+            <Link href="/question-bank/create">
+              <Plus className="w-4 h-4 mr-2" /> Create New Question
+            </Link>
           </Button>
         </div>
       </div>
@@ -271,6 +274,7 @@ export default function QuestionBank() {
               <SelectContent className="bg-[#151921] border-white/10 text-white">
                 <SelectItem value="10">10</SelectItem>
                 <SelectItem value="25">25</SelectItem>
+                <SelectItem value="50">50</SelectItem>
               </SelectContent>
             </Select>
           </div>
