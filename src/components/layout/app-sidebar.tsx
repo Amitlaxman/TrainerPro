@@ -61,7 +61,7 @@ const trainerNavigation = [
 
 const adminNavigation = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "User Management", href: "/employees", icon: Users },
+  { name: "User Management", href: "/admin/users", icon: Users },
   { name: "RBAC Settings", href: "/admin/rbac", icon: Lock },
   { name: "Content Library", href: "/content", icon: Database },
   { name: "Reports", href: "/analytics", icon: BarChart3 },
