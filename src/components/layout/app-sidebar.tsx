@@ -21,7 +21,8 @@ import {
   GraduationCap,
   Database as AdminIcon,
   Plus,
-  ShieldCheck
+  ShieldCheck,
+  History
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -59,8 +60,8 @@ const trainerNavigation = [
 const adminNavigation = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { name: "PSARA Compliance", href: "/admin/psara", icon: ShieldCheck },
+  { name: "Training History", href: "/admin/training-history", icon: History },
   { name: "Courses", href: "/courses", icon: BookOpen },
-  { name: "Trainees", href: "/employees", icon: Users },
   { name: "Reports", href: "/analytics", icon: BarChart3 },
   { name: "Assessments", href: "/question-bank", icon: Search },
 ];
