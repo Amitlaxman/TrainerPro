@@ -20,7 +20,7 @@ import {
   GraduationCap
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -57,7 +57,13 @@ const secondaryNavigation = [
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const trainerImage = PlaceHolderImages.find(img => img.id === "avatar-trainer")?.imageUrl;
+
+  const handleLogout = () => {
+    // In a real application, you would handle session clearing here
+    router.push("/login");
+  };
 
   return (
     <Sidebar className="border-r border-sidebar-border">
@@ -148,7 +154,10 @@ export function AppSidebar() {
             <p className="text-sm font-semibold truncate text-white">John Smith</p>
             <p className="text-xs opacity-50 truncate">Head Trainer</p>
           </div>
-          <button className="p-1.5 hover:bg-sidebar-accent rounded-lg transition-colors">
+          <button 
+            onClick={handleLogout}
+            className="p-1.5 hover:bg-sidebar-accent rounded-lg transition-colors"
+          >
             <LogOut className="w-4 h-4 opacity-70" />
           </button>
         </div>
