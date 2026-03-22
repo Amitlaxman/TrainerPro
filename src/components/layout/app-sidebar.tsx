@@ -22,7 +22,9 @@ import {
   Database as AdminIcon,
   Plus,
   ShieldCheck,
-  History
+  History,
+  Lock,
+  FileText
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -59,16 +61,16 @@ const trainerNavigation = [
 
 const adminNavigation = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "PSARA Compliance", href: "/admin/psara", icon: ShieldCheck },
-  { name: "Training History", href: "/admin/training-history", icon: History },
-  { name: "Courses", href: "/courses", icon: BookOpen },
+  { name: "User Management", href: "/employees", icon: Users },
+  { name: "RBAC Settings", href: "/admin/rbac", icon: Lock },
+  { name: "Content Library", href: "/content", icon: Database },
   { name: "Reports", href: "/analytics", icon: BarChart3 },
-  { name: "Assessments", href: "/question-bank", icon: Search },
 ];
 
 const adminSecondaryNav = [
+  { name: "PSARA Compliance", href: "/admin/psara", icon: ShieldCheck },
+  { name: "Training History", href: "/admin/training-history", icon: History },
   { name: "Settings", href: "/settings", icon: Settings },
-  { name: "Alerts", href: "/alerts", icon: Bell },
 ];
 
 const secondaryNavigation = [
@@ -101,7 +103,7 @@ export function AppSidebar() {
           </div>
           <div className="flex flex-col">
             <span className="font-headline text-xl leading-none tracking-tight text-white">
-              {isAdmin ? "LMS Admin" : "TrainerPro"}
+              {isAdmin ? "AdminPortal" : "TrainerPro"}
             </span>
             {!isAdmin && <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mt-1">Trainer Portal</span>}
           </div>
@@ -165,10 +167,17 @@ export function AppSidebar() {
         </SidebarGroup>
 
         {isAdmin && (
-          <div className="mt-auto p-4">
-            <Button className="w-full bg-blue-600 hover:bg-blue-700 h-12 rounded-xl text-xs font-bold uppercase tracking-widest text-white shadow-xl shadow-blue-600/20">
-              <Plus className="w-4 h-4 mr-2" /> Create New Course
-            </Button>
+          <div className="mt-auto p-4 space-y-4">
+            <div className="p-4 rounded-xl bg-white/2 border border-white/5 space-y-2">
+              <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">System Health</p>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                <span className="text-[9px] font-bold text-white opacity-60">All systems operational</span>
+              </div>
+              <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden mt-2">
+                <div className="h-full bg-blue-600 rounded-full w-[85%]" />
+              </div>
+            </div>
           </div>
         )}
 
@@ -192,13 +201,13 @@ export function AppSidebar() {
           isAdmin ? "bg-blue-600/5 border-blue-600/10" : "bg-sidebar-accent/50 border-sidebar-border"
         )}>
           <Avatar className={cn("w-10 h-10 border-2", isAdmin ? "border-blue-600/20" : "border-primary/20")}>
-            <AvatarImage src={trainerImage} />
+            <AvatarImage src={isAdmin ? "https://picsum.photos/seed/admin/100/100" : trainerImage} />
             <AvatarFallback>JS</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold truncate text-white">{isAdmin ? "Admin User" : "John Smith"}</p>
+            <p className="text-sm font-semibold truncate text-white">{isAdmin ? "Alex Rivera" : "John Smith"}</p>
             <p className="text-[10px] uppercase font-bold opacity-50 truncate tracking-widest">
-              {isAdmin ? "System Admin" : "Head Trainer"}
+              {isAdmin ? "Super Admin" : "Head Trainer"}
             </p>
           </div>
           <button 
