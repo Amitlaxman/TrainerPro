@@ -54,33 +54,6 @@ const gapTopics = [
 export default function SafetyReadinessReport() {
   return (
     <div className="min-h-screen bg-[#0A0C10] text-foreground flex flex-col font-body">
-      {/* Top Navbar */}
-      <header className="px-8 py-4 border-b border-white/5 flex items-center justify-between bg-[#0A0C10]">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/20">
-            <ShieldCheck className="text-white w-6 h-6" />
-          </div>
-          <span className="text-lg font-bold text-white tracking-tight">Campus Compliance</span>
-        </div>
-
-        <nav className="flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-          <Link href="/admin" className="hover:text-white transition-colors">Dashboard</Link>
-          <Link href="/admin/safety-report" className="text-primary border-b-2 border-primary pb-1">Reports</Link>
-          <Link href="#" className="hover:text-white transition-colors">Gap Analysis</Link>
-          <Link href="#" className="hover:text-white transition-colors">Settings</Link>
-        </nav>
-
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:text-white bg-white/5 rounded-full">
-            <Bell className="w-5 h-5" />
-          </Button>
-          <Avatar className="h-10 w-10 border border-white/10 ring-2 ring-blue-600/20 ring-offset-2 ring-offset-[#0A0C10]">
-            <AvatarImage src="https://picsum.photos/seed/admin/100/100" />
-            <AvatarFallback>AU</AvatarFallback>
-          </Avatar>
-        </div>
-      </header>
-
       <main className="flex-1 p-12 max-w-[1440px] mx-auto w-full space-y-12">
         {/* Breadcrumb & Header Action */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
